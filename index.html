@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RPW Market - Buy & Sell</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Header -->
+        <header class="app-header">
+            <div class="logo-area">
+                <i data-lucide="shopping-bag" class="brand-icon"></i>
+                <h1>RPW<span>Market</span></h1>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <i data-lucide="sun" class="sun-icon"></i>
+                    <i data-lucide="moon" class="moon-icon"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- Search Bar -->
+        <div class="search-section">
+            <div class="search-box">
+                <i data-lucide="search"></i>
+                <input type="text" id="search-input" placeholder="Search accounts, edits, services...">
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories-scroll">
+            <button class="cat-chip active" data-category="all">All</button>
+            <button class="cat-chip" data-category="accounts">Accounts</button>
+            <button class="cat-chip" data-category="edits">Edits & Layouts</button>
+            <button class="cat-chip" data-category="services">Services</button>
+            <button class="cat-chip" data-category="codes">Codes & Scripts</button>
+        </div>
+
+        <!-- Main Feed / Content -->
+        <main class="feed-container" id="product-feed">
+            <!-- Dynamic Product Cards injected via JS -->
+        </main>
+
+        <!-- Floating Action Button to Post Item -->
+        <button class="fab-btn" id="open-modal-btn">
+            <i data-lucide="plus"></i>
+            <span>Sell</span>
+        </button>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="feed">
+                <i data-lucide="home"></i>
+                <span>Home</span>
+            </button>
+            <button class="nav-item" data-target="my-listings">
+                <i data-lucide="tag"></i>
+                <span>My Listings</span>
+            </button>
+            <button class="nav-item" data-target="profile">
+                <i data-lucide="user"></i>
+                <span>Profile</span>
+            </button>
+        </nav>
+
+        <!-- Add Item Modal -->
+        <div class="modal-overlay" id="sell-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>List an Item</h2>
+                    <button class="close-modal" id="close-modal-btn"><i data-lucide="x"></i></button>
+                </div>
+                <form id="sell-form">
+                    <div class="form-group">
+                        <label>Item Title</label>
+                        <input type="text" id="item-title" required placeholder="e.g., Clean Dummy 2018 (5k followers)">
+                    </div>
+                    <div class="form-group">
+                        <label>Category</label>
+                        <select id="item-category">
+                            <option value="accounts">Accounts</option>
+                            <option value="edits">Edits & Layouts</option>
+                            <option value="services">Services</option>
+                            <option value="codes">Codes & Scripts</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Price (₱)</label>
+                        <input type="number" id="item-price" required placeholder="150">
+                    </div>
+                    <div class="form-group">
+                        <label>Image URL</label>
+                        <input type="url" id="item-image" required placeholder="https://images.unsplash.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label>RPW Contact Link (Messenger / Telegram)</label>
+                        <input type="text" id="item-contact" required placeholder="m.me/your.rpw.name">
+                    </div>
+                    <button type="submit" class="submit-btn">Publish Listing</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
